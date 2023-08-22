@@ -1,5 +1,4 @@
 ﻿using System;
-using Sitecore.Links;
 using Sitecore.XA.Feature.Search.Models;
 using Sitecore.XA.Foundation.Search.Models;
 
@@ -24,12 +23,11 @@ namespace Alyas.Feature.SxaSearchWithOrderCloud.Models
             else
             {
                 this.IsProduct = false;
-                var searchItem = searchResult.GetItem();
-                this.Id = searchItem.ID.ToString();
-                this.Language = searchItem.Language.Name;
-                this.Path = searchItem.Paths.FullPath;
-                this.Name = searchItem.DisplayName;
-                this.Url = LinkManager.GetItemUrl(searchItem);
+                this.Id = searchResult.ItemId.ToString();
+                this.Language = searchResult.Language;
+                this.Path = searchResult.Path;
+                this.Name = searchResult.Name;
+                this.Url = searchResult.Url;
             }
         }
     }
